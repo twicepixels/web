@@ -33,10 +33,7 @@ ext {
 }
 
 dependencies {
-//    testCompile "junit:junit:${JUNIT_VERSION}"
-//        compile "org.slf4j:slf4j-api:${SLF4J_VERSION}"
-//        compile "org.slf4j:slf4j-log4j12:${SLF4J_VERSION}"
-    compile("org.springframework.boot:spring-boot-devtools")
+    compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.thymeleaf.extras:thymeleaf-extras-springsecurity3:2.1.2.RELEASE")
 }
-
