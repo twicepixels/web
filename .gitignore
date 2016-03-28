@@ -1,37 +1,38 @@
-*.class
+# Eclipse
+.classpath
+.project
+.settings/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
-
-# IntelliJ Idea #
+# Intellij
 .idea/
-.gradle/
-build/
 *.iml
 *.ipr
 *.iws
 
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+# Java
+*.jar
+*.war
+*.ear
+*.class
+
+# Gradle
+build/
+.gradle/
+
+# Other files
+/*.xml
 _windows/
 inspection/
-databaseSettings.xml
-debugger.xml
-diff.xml
-file_template_settings.xml
-github_settings.xml
-ide.general.xml
-Default.xml
-IntelliLang.xml
-mavenVersion.xml
-other.xml
-ui.Inf.xml
-vcs.xml
-web.browsers.xml
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
