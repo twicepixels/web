@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      th:include="template/layout :: page">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Hello world!!</title>
+    <title>ddd</title>
 </head>
 <body>
-Hello World!! si sirve :)
-
-<br/>
-<span th:text="${message}"></span>
-
-<br/>
-<span th:text="#{view.index.hello}"></span>
-
+<div th:fragment="content">
+    <h1>Spring MVC app!</h1>
+    <span th:text="${message}"></span>
+    <br/>
+    <span th:text="#{view.index.hello}"></span>
+    <br/>
+    <h2>Static content for prototyping purposes only</h2>
+    <div th:include="http://www.thymeleaf.org :: p.notice"></div>
+    <h2>Static content for prototyping purposes only</h2>
+    <div th:include="http://www.thymeleaf.org :: p.notice"></div>
+    <h2>Static content for prototyping purposes only</h2>
+    <div th:include="http://www.thymeleaf.org :: p.notice"></div>
+</div>
 </body>
 </html>
