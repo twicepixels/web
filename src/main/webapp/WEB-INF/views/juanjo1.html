@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Hello world!!</title>
-</head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      th:include="template/layout :: page">
 <body>
-<br/>
-<span th:text="${message}"></span>
-
-<br/>
+<div th:fragment="content">
+    <br/>
+    <span th:text="${message}"></span>
+    <br/>
+</div>
 </body>
 </html>
