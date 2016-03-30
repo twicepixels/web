@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="page">
+<head>
+    <title th:text="${pagetitle != null} ? ${pagetitle} : 'Hellow'"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap/bootstrap.css}"/>
+    <link rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}"/>
+    <script th:src="@{/resources/js/jquery-1.10.2.min.js}"></script>
+    <script th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="template/_header :: header"></div>
+
+<div class="body-content">
+    <div th:include="this :: content" class="container">
+        <!-- ============================================================================ -->
+        <!-- This content is only used for static prototyping purposes (natural templates)-->
+        <!-- and is therefore entirely optional, as this markup fragment will be included -->
+        <!-- from "fragments/header.html" at runtime.                                     -->
+        <!-- ============================================================================ -->
+    </div>
+</div>
+<!--<div th:replace="template/_footer :: footer"></div>-->
+</body>
+</html>
