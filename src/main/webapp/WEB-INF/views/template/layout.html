@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="page">
 <head>
-    <title th:text="${pagetitle != null} ? ${pagetitle} : 'Hellow'"></title>
+    <title th:text="${pagetitle != null} ? ${pagetitle} : 'Twicepixels.com'"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/png" th:href="@{/resources/images/brand01.png}"/>
     <link rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap/bootstrap.css}"/>
     <link rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}"/>
     <script th:src="@{/resources/js/jquery-1.10.2.min.js}"></script>
+    <script th:src="@{/resources/js/twicepixels.utils.js}"></script>
     <script th:src="@{/resources/js/bootstrap.min.js}"></script>
 </head>
 <body>
