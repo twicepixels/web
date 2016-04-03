@@ -1,3 +1,4 @@
+/*template basic*/
 a {
     transition: all ease 0.25s;
     -webkit-transition: all ease 0.25s;
@@ -50,4 +51,10 @@ a {
 .footer > .container {
     padding-right: 15px;
     padding-left: 15px;
+}
+/*template basic*/
+
+/*forms generic*/
+.field-validation-error {
+    color: #a94442;
 }
