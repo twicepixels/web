@@ -24,11 +24,11 @@ public class HomeController extends TwiceController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public ModelAndView checkPerson(@Valid PersonForm pform, BindingResult result) {
+    public ModelAndView checkPerson(@Valid PersonForm personForm, BindingResult result) {
         ModelAndView mav = new ModelAndView();
         if (!result.hasErrors()) {
             mav.setViewName("_result");
-            mav.addObject("pform", pform);
+            mav.addObject("personForm", personForm);
         } else if (isAjaxRequest()) {
             System.out.println("Request por XMLHttp");
             mav = JsonResult.render(getErrors(result));
