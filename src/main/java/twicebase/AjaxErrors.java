@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AjaxErrors {
-    private List<ErrorMessage> errors = new ArrayList<>();
+    private List<ErrorMessage> errors = new ArrayList<ErrorMessage>();
 
     public Boolean getHasErrors() {
         return errors.size() > 0;

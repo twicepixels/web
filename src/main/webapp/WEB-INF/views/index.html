@@ -4,7 +4,16 @@
       th:include="template/layout :: page">
 <body>
 <div th:fragment="content">
-    <h1>Spring MVC app!</h1>
+    <div class="jumbotron">
+        <h1>Spring MVC app!</h1>
+        <p>
+            Nuestra pagina se especializa en...
+        </p>
+        <p>
+            'este fondo puede llevar una imagen impactante'
+        </p>
+    </div>
+
     <h2>Static content for prototyping purposes only</h2>
     <span th:text="${message}"></span>
     <br/>
@@ -15,7 +24,7 @@
     <span th:text="#{view.index.hello}"></span>
     <span th:text="${lang}"></span>
 
-    <form action="#" th:action="@{/}" th:object="${personForm}" method="post" id="my-form">
+       <form action="#" th:action="@{/}" th:object="${personForm}" method="post" id="my-form">
 
         <input type="text" th:field="*{name}" title=""/>
         <!--para probarlo con ajax request-->
@@ -50,7 +59,12 @@
         });
     </script>
 
+
+
+
     <div id="_resultDiv"></div>
+
+
 </div>
 </body>
 </html>
