@@ -32,11 +32,6 @@ import java.util.Locale;
 @Configuration
 class WebMvcConfig extends WebMvcConfigurerAdapter {
 
-    private static final String VIEWS = "/WEB-INF/views/";
-    private static final String MESSAGE_SOURCE = "/WEB-INF/i18n/messages";
-    private static final String RESOURCES_HANDLER = "/resources/";
-    private static final String RESOURCES_LOCATION = RESOURCES_HANDLER + "**";
-
     @Override
     public Validator getValidator() {
         LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
@@ -46,8 +41,8 @@ class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler(RESOURCES_HANDLER)
-                .addResourceLocations(RESOURCES_LOCATION);
+        registry.addResourceHandler("/resources/**")
+                .addResourceLocations("/resources/");
     }
 
     @Override
@@ -80,7 +75,10 @@ class WebMvcConfig extends WebMvcConfigurerAdapter {
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource
                 = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename(MESSAGE_SOURCE);
+//        messageSource.setBasename("/WEB-INF/i18n/messages");
+        messageSource.setBasenames(
+                "/WEB-INF/i18n/images",
+                "/WEB-INF/i18n/messages");
         messageSource.setCacheSeconds(5);
         return messageSource;
     }
@@ -88,7 +86,7 @@ class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Bean(name = "templateResolver")
     public TemplateResolver templateResolver() {
         TemplateResolver templateResolver = new ServletContextTemplateResolver();
-        templateResolver.setPrefix(VIEWS);
+        templateResolver.setPrefix("/WEB-INF/views/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode("HTML5");
         templateResolver.setCacheable(false);
