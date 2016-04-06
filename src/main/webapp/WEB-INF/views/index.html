@@ -24,44 +24,43 @@
     <span th:text="#{view.index.hello}"></span>
     <span th:text="${lang}"></span>
 
-       <form action="#" th:action="@{/}" th:object="${personForm}" method="post" id="my-form">
-
-        <input type="text" th:field="*{name}" title=""/>
-        <!--para probarlo con ajax request-->
-        <span class="field-validation-error" data-valmsg-for="name"></span>
-        <!--para probarlo con ajax request-->
-
-        <!--para probarlo con postback-->
-        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-              class="field-validation-error" data-valmsg-for="name"></span>
-        <!--para probarlo con postback-->
-        <br/>
-
-        <input type="text" th:field="*{age}" title=""/>
-        <!--para probarlo con ajax request-->
-        <span class="field-validation-error" data-valmsg-for="age"></span>
-        <!--para probarlo con ajax request-->
-
-        <!--para probarlo con postback-->
-        <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"
-              class="field-validation-error" data-valmsg-for="age"></span>
-        <!--para probarlo con postback-->
-        <br/>
-
-        <button type="submit">Submit</button>
-    </form>
-    <script>
-        $(function () {
-            $("#my-form").submit(function (event) {
-                event.preventDefault();
-                $tw.ajax({form: this, targetId: "_resultDiv", operation: "append"});
-            });
-        });
-    </script>
-
-
-
-
+    <div class="row">
+        <div class="col-md-4">
+            <form action="#" th:action="@{/}" th:object="${personForm}" method="post" id="my-form">
+                <div class="form-group">
+                    <input type="text" th:field="*{name}" title="" class="form-control"/>
+                    <!--para probarlo con ajax request-->
+                    <span class="field-validation-error" data-valmsg-for="name"></span>
+                    <!--para probarlo con ajax request-->
+                    <!--para probarlo con postback-->
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                          class="field-validation-error" data-valmsg-for="name"></span>
+                    <!--para probarlo con postback-->
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{age}" title="" class="form-control"/>
+                    <!--para probarlo con ajax request-->
+                    <span class="field-validation-error" data-valmsg-for="age"></span>
+                    <!--para probarlo con ajax request-->
+                    <!--para probarlo con postback-->
+                    <span th:if="${#fields.hasErrors('age')}"
+                          th:errors="*{age}"
+                          class="field-validation-error"
+                          data-valmsg-for="age"></span>
+                    <!--para probarlo con postback-->
+                </div>
+                <button type="submit" class="btn btn-default" th:text="#{app.form.submit}"></button>
+            </form>
+            <script type="text/javascript">
+                $(function () {
+                    $("#my-form").submit(function (event) {
+                        event.preventDefault();
+                        $tw.ajax({form: this, targetId: "_resultDiv", operation: "append"});
+                    });
+                });
+            </script>
+        </div>
+    </div>
     <div id="_resultDiv"></div>
 
 
