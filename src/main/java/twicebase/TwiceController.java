@@ -14,10 +14,10 @@ import java.util.Locale;
 public abstract class TwiceController {
 
     @Autowired
-    protected MessageSource messageSource;
+    private MessageSource messageSource;
 
     @Autowired
-    protected LocaleResolver localeResolver;
+    private LocaleResolver localeResolver;
 
     protected String getMessage(String code) {
         return getMessage(code, null);
@@ -41,16 +41,14 @@ public abstract class TwiceController {
 
     protected AjaxErrors getErrors(BindingResult result) {
         AjaxErrors errors = new AjaxErrors();
-        for (Object object : result.getAllErrors()) {
-            if (object instanceof FieldError) {
-                FieldError fieldError = (FieldError) object;
-                Locale loc = localeResolver.resolveLocale(getRequest());
-                String message = messageSource.getMessage(fieldError, loc);
-                errors.add(fieldError.getField(), message);
-// logger.info("ErrorMessage : " +
-// message + " - "  + fieldError.getField());
-            }
-        }
+        result.getAllErrors().stream()
+                .filter(e -> e instanceof FieldError)
+                .forEach(e -> {
+                    FieldError fieldError = (FieldError) e;
+                    Locale loc = localeResolver.resolveLocale(getRequest());
+                    String message = messageSource.getMessage(fieldError, loc);
+                    errors.add(fieldError.getField(), message);
+                });
         return errors;
     }
 }
